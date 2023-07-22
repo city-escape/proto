@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Design System - Feladat</title>
+  <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+  <style>
+    /* Add any additional styles here */
+    body {
+      padding: 1rem;
+    }
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    .large-text {
+      font-size: 1.5rem;
+    }
+    .whitespace {
+      height: 2rem;
+    }
+    .submit-btn {
+      margin-top: 1rem;
+    }
+    .notification {
+      display: none;
+    }
+    .notification--visible {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="bx--heading">1. feladat</h1>
+    <p class="large-text">
+      Menjetek az Andrássy út 60. Csengery utca felőli sarkára!<br>
+      Ellenőrizzük, hogy jó helyen álltok-e!<br>
+      Milyen évszám van a falra felírva?
+    </p>
+    <form class="bx--form" onsubmit="return checkInput()">
+      <input type="text" class="bx--text-input" placeholder="Írd ide az évszámot" pattern="[0-9]{4}" title="Négy számjegyet írj be!" required>
+      <button class="bx--btn bx--btn--primary submit-btn" type="submit">MEHET</button>
+    </form>
+    <div class="notification" id="notification-success">Talált!</div>
+    <div class="notification" id="notification-error">Rossz megoldás!</div>
+    <div class="whitespace"></div> <!-- Add whitespace between form and link -->
+    <a href="https://goo.gl/maps/SDnXYjyDbt5mLNnL8" target="_blank" rel="noopener noreferrer" class="bx--link">Segítség</a>
+  </div>
+
+  <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+  <script>
+    function checkInput() {
+      const inputElement = document.querySelector('.bx--text-input');
+      const inputValue = inputElement.value.trim();
+      const successNotification = document.getElementById('notification-success');
+      const errorNotification = document.getElementById('notification-error');
+
+      if (inputValue === '1956') {
+        showNotification(successNotification);
+        setTimeout(() => {
+          window.location.href = '2.html';
+        }, 2000); // Navigálás 2 másodperc után
+      } else {
+        showNotification(errorNotification);
+      }
+
+      return false; // Megakadályozza az űrlap elküldését
+    }
+
+    function showNotification(notificationElement) {
+      notificationElement.classList.add('notification--visible');
+      setTimeout(() => {
+        notificationElement.classList.remove('notification--visible');
+      }, 2000); // 2 másodperc után elrejtés
+    }
+  </script>
+</body>
+
+</html>
