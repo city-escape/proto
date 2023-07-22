@@ -45,8 +45,20 @@
       <input type="text" class="bx--text-input" placeholder="Írd ide az évszámot" pattern="[0-9]{4}" title="Négy számjegyet írj be!" inputmode="numeric" required>
       <button class="bx--btn bx--btn--primary submit-btn" type="submit">MEHET</button>
     </form>
-    <div class="notification" id="notification-success">Talált!</div>
-    <div class="notification" id="notification-error">Rossz megoldás!</div>
+    <div class="bx--inline-notification bx--inline-notification--success" id="notification-success">
+      <div class="bx--inline-notification__details">
+        <p class="bx--inline-notification__text">
+          Talált!
+        </p>
+      </div>
+    </div>
+    <div class="bx--inline-notification bx--inline-notification--alert" id="notification-error">
+      <div class="bx--inline-notification__details">
+        <p class="bx--inline-notification__text">
+          Rossz megoldás!
+        </p>
+      </div>
+    </div>
     <div class="whitespace"></div> <!-- Add whitespace between form and link -->
     <a href="https://goo.gl/maps/SDnXYjyDbt5mLNnL8" target="_blank" rel="noopener noreferrer" class="bx--link">Segítség</a>
   </div>
