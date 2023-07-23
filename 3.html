@@ -33,6 +33,14 @@
     .hint-images .hidden {
       display: none;
     }
+    .hidden-checkbox {
+      display: none;
+    }
+    .hidden-checkbox:selected + .hidden-checkbox-label {
+      background-color: var(--cds-layer-active);
+      color: var(--cds-link-primary-hover, #0043ce);
+      background-color: var(--cds-background-active, rgba(141, 141, 141, 0.5));
+    }
   </style>
 </head>
 
