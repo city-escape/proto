@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1. feladat</title>
+  <title>2. feladat</title>
   <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
   <style>
     /* Add any additional styles here */
@@ -30,19 +30,27 @@
     .bx--inline-notification--visible {
       display: block;
     }
+    .hint-img {
+      display: none;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="bx--heading">1. feladat</h1>
+    <h1 class="bx--heading">2. feladat</h1>
     <p class="large-text">
+      <!--
       Menjetek az Andrássy út 60. Csengery utca felőli sarkára!<br>
       Ellenőrizzük, hogy jó helyen álltok-e!<br>
       Milyen évszám van a falra felírva?
+      -->
+    </p>
+    <p style="text-align: center;">
+      <img src="./2-feladat.png" alt="2. feladat" style="max-width: 100%; height: auto">
     </p>
     <form class="bx--form" onsubmit="return checkInput()">
-      <input type="text" class="bx--text-input" placeholder="Írd ide az évszámot" pattern="[0-9]{4}" title="Négy számjegyet írj be!" inputmode="numeric" required>
+      <input type="text" class="bx--text-input" placeholder="Írd ide a megoldást" pattern="[A-Za-z]*" inputmode="text" required>
       <div class="bx--inline-notification bx--inline-notification--success" id="notification-success">
         <div class="bx--inline-notification__details">
           <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--inline-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"></path><path fill="none" d="M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z" data-icon-path="inner-path" opacity="0"></path></svg>
@@ -66,21 +74,28 @@
       <button class="bx--btn bx--btn--primary submit-btn" type="submit">MEHET</button>
     </form>
     <div class="whitespace"></div> <!-- Add whitespace between form and link -->
-    <a href="https://goo.gl/maps/SDnXYjyDbt5mLNnL8" target="_blank" rel="noopener noreferrer" class="bx--link">Segítség</a>
+    <a href="#" class="bx--link" onclick="return showHint()">Segítség</a>
+    <div class="hint-img">
+      <img src="./2-feladat-segitseg.jpg" alt="segítség" style="max-width: 100%; height: auto;">
+    </div>
   </div>
 
   <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
   <script>
+    function showHint() {
+      document.querySelector('.hint-img').style.display = 'block';
+      return false;
+    }
     function checkInput() {
       const inputElement = document.querySelector('.bx--text-input');
-      const inputValue = inputElement.value.trim();
+      const inputValue = inputElement.value.trim().toLowerCase();
       const successNotification = document.getElementById('notification-success');
       const errorNotification = document.getElementById('notification-error');
 
-      if (inputValue === '1956') {
+      if (inputValue === 'berlin') {
         showNotification(successNotification);
         setTimeout(() => {
-          window.location.href = '2.html';
+          window.location.href = '3.html';
         }, 2000); // Navigálás 2 másodperc után
       } else {
         showNotification(errorNotification);
