@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1. feladat</title>
-  <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/styles@1.34.0/css/styles.css">
   <style>
     /* Add any additional styles here */
     body {
@@ -24,10 +24,10 @@
     .submit-btn {
       margin-top: 1rem;
     }
-    .bx--inline-notification {
+    .cds--inline-notification {
       display: none;
     }
-    .bx--inline-notification--visible {
+    .cds--inline-notification--visible {
       display: block;
     }
   </style>
@@ -35,44 +35,43 @@
 
 <body>
   <div class="container">
-    <h1 class="bx--heading">1. feladat</h1>
+    <h1 class="cds--heading">1. feladat</h1>
     <p class="large-text">
       Menjetek az Andrássy út 60. Csengery utca felőli sarkára!<br>
       Ellenőrizzük, hogy jó helyen álltok-e!<br>
       Milyen évszám van a falra felírva?
     </p>
-    <form class="bx--form" onsubmit="return checkInput()">
-      <input type="text" class="bx--text-input" placeholder="Írd ide az évszámot" pattern="[0-9]{4}" title="Négy számjegyet írj be!" inputmode="numeric" required>
-      <div class="bx--inline-notification bx--inline-notification--success" id="notification-success">
-        <div class="bx--inline-notification__details">
-          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--inline-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"></path><path fill="none" d="M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z" data-icon-path="inner-path" opacity="0"></path></svg>
-          <div class="bx--inline-notification__text-wrapper">
-            <p class="bx--inline-notification__text">
+    <form class="cds--form" onsubmit="return checkInput()">
+      <input type="text" class="cds--text-input" placeholder="Írd ide az évszámot" pattern="[0-9]{4}" title="Négy számjegyet írj be!" inputmode="numeric" required>
+      <div class="cds--inline-notification cds--inline-notification--success" id="notification-success">
+        <div class="cds--inline-notification__details">
+          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="cds--inline-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-4.9,0-9,4.1-9,9s4.1,9,9,9s9-4,9-9S15,1,10,1z M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z"></path><path fill="none" d="M8.7,13.5l-3.2-3.2l1-1l2.2,2.2l4.8-4.8l1,1L8.7,13.5z" data-icon-path="inner-path" opacity="0"></path></svg>
+          <div class="cds--inline-notification__text-wrapper">
+            <p class="cds--inline-notification__text">
               Talált!
             </p>
           </div>
         </div>
       </div>
-      <div class="bx--inline-notification bx--inline-notification--error" id="notification-error">
-        <div class="bx--inline-notification__details">
-          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--inline-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"></path><path d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" data-icon-path="inner-path" opacity="0"></path></svg>
-          <div class="bx--inline-notification__text-wrapper">
-            <p class="bx--inline-notification__text">
+      <div class="cds--inline-notification cds--inline-notification--error" id="notification-error">
+        <div class="cds--inline-notification__details">
+          <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="cds--inline-notification__icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10,1c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S15,1,10,1z M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z"></path><path d="M13.5,14.5l-8-8l1-1l8,8L13.5,14.5z" data-icon-path="inner-path" opacity="0"></path></svg>
+          <div class="cds--inline-notification__text-wrapper">
+            <p class="cds--inline-notification__text">
               Rossz megoldás!
             </p>
           </div>
         </div>
       </div>
-      <button class="bx--btn bx--btn--primary submit-btn" type="submit">MEHET</button>
+      <button class="cds--btn cds--btn--primary submit-btn" type="submit">MEHET</button>
     </form>
     <div class="whitespace"></div> <!-- Add whitespace between form and link -->
-    <a href="https://goo.gl/maps/SDnXYjyDbt5mLNnL8" target="_blank" rel="noopener noreferrer" class="bx--link">Segítség</a>
+    <a href="https://goo.gl/maps/SDnXYjyDbt5mLNnL8" target="_blank" rel="noopener noreferrer" class="cds--link">Segítség</a>
   </div>
 
-  <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
   <script>
     function checkInput() {
-      const inputElement = document.querySelector('.bx--text-input');
+      const inputElement = document.querySelector('.cds--text-input');
       const inputValue = inputElement.value.trim();
       const successNotification = document.getElementById('notification-success');
       const errorNotification = document.getElementById('notification-error');
@@ -90,9 +89,9 @@
     }
 
     function showNotification(notificationElement) {
-      notificationElement.classList.add('bx--inline-notification--visible');
+      notificationElement.classList.add('cds--inline-notification--visible');
       setTimeout(() => {
-        notificationElement.classList.remove('bx--inline-notification--visible');
+        notificationElement.classList.remove('cds--inline-notification--visible');
       }, 2000); // 2 másodperc után elrejtés
     }
   </script>
