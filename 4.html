@@ -66,15 +66,19 @@
       top: 1700px;
     }
     .note {
+      background-repeat: no-repeat;
+      background-position: center center;
       width: 60px;
       height: 90px;
       position: relative;
       margin-right: 80px; /* Add spacing between images */
       /*border: 3px solid green;*/
       cursor: pointer;
+      flex-shrink: 0;
     }
     .note img {
       position: relative;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -117,26 +121,26 @@
     </p>
     <p>
       <div class="notecontainer">
-        <div class="note" >
-          <img src="./4-feladat/Hangjegy 1.png" draggable="true" id="drag1">
+        <div class="note"  draggable="true" style="background-image: url(./4-feladat/Hangjegy%201.png)"  id="drag1">
+          <!-- <img src="./4-feladat/Hangjegy 1.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 1.png" draggable="true" id="drag2">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%201.png)"  id="drag2">
+          <!-- <img src="./4-feladat/Hangjegy 1.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 1.png" draggable="true" id="drag3">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%201.png)"  id="drag3">
+          <!-- <img src="./4-feladat/Hangjegy 1.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 3.png" draggable="true" id="drag4">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%203.png)"  id="drag4">
+          <!-- <img src="./4-feladat/Hangjegy 3.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 5.png" draggable="true" id="drag5">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%205.png)"  id="drag5">
+          <!-- <img src="./4-feladat/Hangjegy 5.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 4.png" draggable="true" id="drag6">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%204.png)"  id="drag6">
+          <!-- <img src="./4-feladat/Hangjegy 4.png"> -->
         </div>
-        <div class="note">
-          <img src="./4-feladat/Hangjegy 2.png" draggable="true" id="drag7">
+        <div class="note" draggable="true" style="background-image: url(./4-feladat/Hangjegy%202.png)"  id="drag7">
+          <!-- <img src="./4-feladat/Hangjegy 2.png"> -->
         </div>
       </div>
     </p>
@@ -212,9 +216,14 @@ function drop(ev) {
     }
 }
 
+function preventDefault(ev) {
+    ev.preventDefault();
+}
+
 // Event listeners for mouse events
-document.querySelectorAll('.note img').forEach(function (item) {
+document.querySelectorAll('.note').forEach(function (item) {
     item.addEventListener('dragstart', dragStart);
+    // item.addEventListener('touchstart', preventDefault);
 });
 
 document.querySelectorAll('.dropcontainer').forEach(function (item) {
